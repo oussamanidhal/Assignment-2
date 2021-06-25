@@ -1,0 +1,84 @@
+@tailwind base;
+
+@tailwind components;
+
+.custom100vh {
+    height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+    height: calc(var(--vh, 1vh) * 100);
+}
+/* Navbar */
+.navbar__item {
+    @apply flex justify-center w-full text-2xl my-6 relative;
+}
+
+.navbar__item::before {
+    @apply absolute top-0 bottom-0 left-0 bg-primary opacity-0 transition-opacity duration-500;
+    content: '';
+    width: 6px;
+    border-radius: 0 4px 4px 0;
+}
+.navbar__item.active::before,
+.navbar__item:hover::before {
+    @apply opacity-100;
+}
+
+/* Loader */
+.lds-dual-ring {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+}
+.lds-dual-ring:after {
+    content: ' ';
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+.lds-dual-ring-black:after {
+    border: 2px solid #000;
+    border-color: #000 transparent #000 transparent;
+}
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.Toastify__toast {
+    @apply rounded-12 p-3;
+}
+
+/* custom checkbox styles */
+.checkbox input:focus + .icon {
+    outline: -webkit-focus-ring-color auto 1px;
+}
+
+@tailwind utilities;
